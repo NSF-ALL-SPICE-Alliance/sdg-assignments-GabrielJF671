@@ -310,10 +310,8 @@ What if we want to subset specific rows? We can do this by using the filter func
 Using the `select()` function, select two new SDG goal scores. Assign it to a variable named `SDG_scores`.
 
 ```{r}
-
 SDG_scores <- sdr_data %>% select(goal_1_score, goal_2_score)
 SDG_scores
-
 ```
 
 
