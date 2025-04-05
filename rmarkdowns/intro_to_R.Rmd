@@ -107,6 +107,8 @@ my_age + 5 # how old will you be in 5 years?
 
 #### <span style="color: red;">Challenge 1</span>
 Create a my_name variable with your name assigned to the variable instead of "Victoria DelaCruz". Then, create a my_age variable with your age. 
+
+
 ```{r}
 my_name <- "Gabriel Ferrer"
 my_name
@@ -158,7 +160,7 @@ The [University of Cincinnati](https://uc-r.github.io/introduction) has a great 
 If you want to remove or delete a variable, you can run the following code:
 
 ```{r}
-rm(my_name) # input the variable name in the parenthesis
+rm(my_name) 
 ```
 
 #### Variables Best Practices
@@ -199,12 +201,17 @@ library(janitor) # helps us clean column names
 
 Note: **You will most likely get an error.** If you get an error about not having these packages installed, run the install.packages("packagename") code in the console. We went over this on line 48 under the *Installing a Package* header
 
+```{r}
+install.packages("packagename")
+```
+
 Example of this kind of error pictured here:
 
 
 <img src="`r here::here('images/library_error.png')`" /> 
 
 In the code chunk below, we use the `read_csv()` function to read in the csv file called *SDR-2023-Data.csv* in our data folder. 
+
 
   - We use the `here()` function to cut out long file paths. Instead of starting at the home directory on our computer and having to point R towards the csv file we want to read in with *"Users/Victoria/data_science/SDR-2023-Landscape/SDR-2023-Data.csv"*, we can simply tell R to start within the directory of our current R project and find the SDR-2023-Data.csv in our data folder. 
   
@@ -300,9 +307,19 @@ You'll notice we used the pipe operator ` %>% ` after the name of the dataframe,
 What if we want to subset specific rows? We can do this by using the filter function. 
 
 #### <span style="color: red;">Challenge 2</span>
-Using the `select()` function, select two new SDG goal scores. Assign it to a variable named `SDG_scores`. 
+Using the `select()` function, select two new SDG goal scores. Assign it to a variable named `SDG_scores`.
+
+```{r}
+
+SDG_scores <- sdr_data %>% select(goal_1_score, goal_2_score)
+SDG_scores
+
+```
+
 
 *2. filter()*
+
+SDG-scores <- select()
 
 Similarly to select, `filter()` can be used to extract specific rows. Let's try this out by filtering our data for those within the Oceania region.
 
@@ -321,6 +338,12 @@ Notes:
 
 #### <span style="color: red;">Challenge 3</span>
 Using the `filter()` function, filter for another region other than Oceania. Assign it to a variable named `new_region`. 
+
+```{r}
+new_region <- sdr_data %>% filter(regions_used_for_the_sdr == "LAC")
+new_region
+```
+
 
 **Important**
 
