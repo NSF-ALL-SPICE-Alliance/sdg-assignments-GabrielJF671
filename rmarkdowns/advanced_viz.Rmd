@@ -147,14 +147,16 @@ ggplot(data = sdr_data, aes(x= goal_3_score, y = goal_4_score, color = regions_u
   - hint: you will have to assign a name to the plot
 
 ```{r}
-ggplot(data = sdr_data, aes(x= goal_2_score, y = goal_3_score, color = regions_used_for_the_sdr)) +
+goal_2_histogram <- ggplot(sdr_data, aes(x = goal_3_score, y = goal_4_score, color=regions_used_for_the_sdr)) +
   geom_point() +
   theme_minimal() +
   scale_fill_viridis_d() +
   labs(title = "Distributions of SDG 2 Scores",
        x = "SDG 2 Score",
        y = "Number of Countries",
-       fill = "Region")1
+       color = "Region")
+
+ggplotly(goal_2_histogram)
 ```
 
 
