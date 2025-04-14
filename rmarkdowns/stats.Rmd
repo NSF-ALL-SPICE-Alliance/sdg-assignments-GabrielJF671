@@ -31,6 +31,11 @@ library(ggcorrplot)
 library(vembedr)
 ```
 
+```{r}
+# Adding to Create a Interactive Plot/Chart
+library(plotly)
+```
+
 
 ```{r, echo=FALSE}
 embed_url("https://www.youtube.com/watch?v=Gzgj73UQ__A")
@@ -220,3 +225,17 @@ ggplot(sdr_data, aes(x = goal_12_score,
       - are there any points that don't follow the trend (outliers)
         
         - which country(s) are outliers?
+        
+```{r}
+goal_scores_of_8_and_2_Scores <- ggplot(sdr_data, aes(x = goal_8_score, 
+                     y = goal_2_score, label = country)) +
+  geom_point() +
+  geom_smooth() +
+  stat_cor() +
+  theme_minimal()
+
+ggplotly(goal_scores_of_8_and_2_Scores)
+
+# Hypothesis:
+# From this the Correlation between SDG 8 which relates (Economy and Architecture) and SDG 2 which relates of (Economic Growth and Financial Stability). From SDG 8 Relating towards Economy and Architecture gives info of their Military, Economic Stability, Job Opportunity & and Imports. As well as SDG 2 which correlates to their ability of Opportunity of Economic Growth & Support of Financial Stability; which also relates the ability of Jobs, Protection, and Stability of Architecture. With this information we are to determine of the Stability with two different scores, which are mostly the positives of both sides. Korea, China, Denmark, Philippines, Australia, etc. (Represents SDG 8) has been able t stabilize between Protection, Job Opportunity and Architecture availability. Then for Sudan, South Sudan, Comoros, Afghanistan, Yemen, etc. (Represents SDG 2). Have a bit more opportunities for Military Growth & Economic Growth. Overall, these scores help differentiate the abiity of current power and opportunities of growth in the upcoming years or future goals.
+```
